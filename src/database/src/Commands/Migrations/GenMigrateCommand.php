@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of Hyperf.
  *
  * @link     https://www.hyperf.io
- * @document https://doc.hyperf.io
+ * @document https://hyperf.wiki
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
@@ -19,13 +19,6 @@ use Symfony\Component\Console\Input\InputOption;
 class GenMigrateCommand extends BaseCommand
 {
     /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Generate a new migration file';
-
-    /**
      * The migration creator instance.
      *
      * @var \Hyperf\Database\Migrations\MigrationCreator
@@ -38,6 +31,7 @@ class GenMigrateCommand extends BaseCommand
     public function __construct(MigrationCreator $creator)
     {
         parent::__construct('gen:migration');
+        $this->setDescription('Generate a new migration file');
 
         $this->creator = $creator;
     }
